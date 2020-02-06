@@ -1,0 +1,26 @@
+<!-- index.html -->
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Flask-SocketIO Test</title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            var socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+
+            socket.on('server_response', function (msg) {
+                $('#content').append('<br>' + $('<div/>').text('Received #' + ': ' + msg.data).html());
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <h2>WebSokect Example</h2>
+    <div id='content'></div>
+</body>
+
+</html>
